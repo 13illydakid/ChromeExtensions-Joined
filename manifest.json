@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "Chrome Extensions Joined",
+  "version": "1.0.0",
+  "description": "Multiple Chrome extensions I have written consolidated into one folder for developer mode (browser) usage.",
+  "author": "billychiu517@gmail.com",
+  "icons": {
+    "48": "images/logo.png",
+    "128": "images/logo.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "images/logo.png",
+      "128": "images/logo.png"
+    },
+    "default_title": "ChromeExtensions.join()"
+  },
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "css": [
+        "contentStyle.css"
+      ],
+      "js": [
+        "contentScript.js"
+      ]
+    }
+  ],
+  "commands": {
+    "select-search": {
+      "suggested_key": { "default": "MacCtrl+F" },
+      "description": "Focus on current tab's search box"
+    },
+    "click-next-page": {
+      "suggested_key": { "default": "Alt+Shift+Right" },
+      "description": "Selects the next page element (usually a right arrow sign) and clicks on it"
+    },
+    "click-prev-page": {
+      "suggested_key": { "default": "Alt+Shift+Left" },
+      "description": "Selects the previous page element (usually a right arrow sign) and clicks on it"
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ]
+}
